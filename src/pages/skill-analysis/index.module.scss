@@ -1,0 +1,101 @@
+.root {
+  height: 90vh;
+  //border: 1px solid red;
+  //box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.up {
+  //border: 1px solid cyan;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #49e7d8;
+  font-size: 42px;
+  font-family: PingFangSC;
+  padding-top: 191px;
+}
+
+.down {
+  //border: 1px solid cyan;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: 143px;
+}
+
+.chart-container {
+  padding-top: 47px;
+  //border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.guess-fav-container {
+  margin-top: 126px;
+  //border: 1px solid cyan;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: #e7f5fc;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  //border: 1px solid pink;
+  margin-top: 29px;
+}
+
+.value-bar-container {
+  display: flex;
+  flex-direction: column;
+  //border: 1px solid pink;
+  width: 580px;
+  margin-bottom: 34px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.value-txt {
+  //width: 220px;
+  //text-align: right;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  opacity: 0.8;
+  //border: 1px solid greenyellow;
+}
+
+.bar {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.btnStart {
+  margin-top: 91px;
+  width: 590px;
+  height: 85px;
+  line-height: 85px;
+  border-radius: 42.5px;
+  border: solid 1px #07fe13;
+  background-color: rgba(7, 254, 19, 0.4);
+  font-family: PingFangSC;
+  font-size: 30px;
+  font-weight: 500;
+  color: #e7f5fc;
+  //opacity: 0.8;
+  &:active {
+    background-color: rgba(7, 254, 19, 0.3);
+  }
+;
+}

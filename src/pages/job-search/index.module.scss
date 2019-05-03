@@ -1,0 +1,74 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  //margin: 0 30px;
+  //border: 1px solid cyan;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.jobs-container {
+  height: 86.6vh;
+  //margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  //border: 1px solid #3fbb45;
+  box-sizing: border-box;
+  //margin-bottom: 20px;
+  padding: 30px 33px 0 31px;
+  overflow: hidden;
+  flex: 1;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.card-container {
+  width: 686px;
+  border-radius: 10px;
+  //border: solid 1px rgba(73, 231, 216, 0.2);
+}
+
+.voice-container {
+  //border: 1px solid red;
+  box-sizing: border-box;
+  display: flex;
+  //margin-bottom: 10px;
+  min-height: 100px;
+  //padding: 20px 50px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 -8px 4px 0 rgba(0, 0, 0, 0.08);
+  background-color: #060248;
+}
+
+.btn-container {
+  margin: 17px 19px 17px 0;
+  //border: 1px solid pink;
+  padding: 4px;
+  box-sizing: border-box;
+  width: 127px;
+  height: 127px;
+  //border-radius: 45px;
+}
+
+.searchTxt {
+  margin: 56px 0 55px 46px;
+  color: #e7f5fc;
+  //border: 1px solid red;
+  line-height: 50px;
+  flex: 1;
+  font-family: PingFangSC;
+  font-size: 36px;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 45px;
+  &:active {
+  }
+}

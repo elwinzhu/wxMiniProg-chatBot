@@ -1,0 +1,61 @@
+$primary-front: white;
+
+.root {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  flex-grow: 1;
+}
+
+.step-progress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.step-progress-line {
+  background-color: white;
+  opacity: 0.5;
+  flex-grow: 1;
+  height: 8px;
+}
+
+.step-progress-line-active {
+  background-color: $primary-front;
+  opacity: 1;
+}
+
+.step-progress-dot {
+  background-color: white;
+  opacity: 0.5;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+}
+
+.step-progress-dot-active {
+  background-color: $primary-front;
+  opacity: 1;
+}
+
+.step-label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.step-label-text {
+  color: white;
+  font-size: 28px;
+  opacity: 0.5;
+}
+
+.step-label-text-active {
+  color: $primary-front;
+  font-size: 28px;
+  opacity: 1;
+}

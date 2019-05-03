@@ -1,0 +1,78 @@
+.root {
+  //height: 750px;
+  //border: 1px solid red;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.intro {
+  //border: 1px solid cyan;
+  box-sizing: border-box;
+  //height: 556px;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  color: #49e7d8;
+  font-family: PingFangSC;
+  font-size: 42px;
+}
+
+.container {
+  //border: 1px solid red;
+  display: flex;
+  margin-top: 194px;
+}
+
+.input {
+  border: solid 1px rgba(73, 231, 216, 0.2);
+  background-color: rgba(73, 231, 216, 0.18);
+  margin-top: 93px;
+  width: 505px;
+  padding: 0 40px;
+  color: #e7f5fc;
+  border-radius: 42.5px;
+  font-size: 30px;
+  font-family: PingFangSC;
+  height: 85px;
+}
+
+.ph {
+  color: #e7f5fc;
+  opacity: 0.6;
+  font-family: PingFangSC;
+}
+
+.text-container1,
+.text-container2,
+.text-container3 {
+  //border: 1px solid yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  //font-size: 40px;
+}
+
+.text-container3 {
+  //border: 1px solid pink;
+}
+
+.avatar-container {
+  //border: 1px solid yellowgreen;
+  box-sizing: border-box;
+  //height: 60vh;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.avatar {
+  //background-color: rgba(255, 255, 255, 0.4);
+  height: 314px;
+  width: 314px;
+  //border: 1px solid red;
+  //border-radius: 100px;
+}

@@ -1,0 +1,41 @@
+.out-container {
+  //border: 1px solid cyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  //border: 1px solid red;
+  padding-top: 132px;
+}
+
+.avatar {
+  width: 314px;
+  height: 314px;
+  //border: 1px solid greenyellow;
+  background-size: contain;
+  margin-bottom: 14px;
+  font-family: PingFangSC;
+}
+
+.backBtn {
+  margin-top: 214px;
+  width: 590px;
+  height: 85px;
+  border-radius: 42.5px;
+  border: solid 1px #07fe13;
+  background-color: rgba(7, 254, 19, 0.4);
+  font-family: PingFangSC;
+  font-size: 30px;
+  font-weight: 500;
+  color: #e7f5fc;
+  &:active {
+    background-color: rgba(7, 254, 19, 0.3);
+  }
+}

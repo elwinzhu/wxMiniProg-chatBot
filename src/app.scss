@@ -1,0 +1,7 @@
+page, body {
+  //-webkit-backdrop-filter: blur(40px);
+  //backdrop-filter: blur(40px);
+  background-image: radial-gradient(circle closest-corner at 50% 60%, #263193, #222c8d 49%, #150b63);
+  height: 100%;
+  width: 100%;
+}

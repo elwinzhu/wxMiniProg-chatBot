@@ -1,0 +1,81 @@
+.root {
+  //height: 750px;
+  //border: 1px solid red;
+  box-sizing: border-box;
+  height: 100vh;
+  background-image: radial-gradient(circle at 50% 50%, #263193, #222c8d 49%, #150b63);
+}
+
+.error-container {
+  //border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.error-num {
+  margin-top: 16.3vh;
+  //border: 1px solid blueviolet;
+  width: 620px;
+  height: 273px;
+  font-family: PingFangSC;
+  font-size: 195px;
+  font-weight: 500;
+  text-align: center;
+  color: rgba(231, 245, 252, 0.14);
+}
+
+.robot {
+  width: 295.8px;
+  height: 336px;
+  transform: rotate(13deg);
+  margin-top: -176.4px;
+}
+
+.error-label {
+  //border: 1px solid blueviolet;
+  width: 336px;
+  height: 94px;
+  font-family: PingFangSC;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: center;
+  color: #49e7d8;
+}
+
+.main-page-link {
+  //border: 1px solid blueviolet;
+  //display: flex;
+  color: #e7f5fc;
+  text-decoration: underline;
+}
+
+.report-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 7.2vh;
+  width: 231px;
+  height: 85px;
+  border-radius: 42.5px;
+  border: solid 1px #49e7d8;
+  background-color: rgba(73, 231, 216, 0.2);
+}
+
+.report-btn-text {
+  //border: 1px solid blueviolet;
+  width: 151px;
+  line-height: 51px;
+  height: 51px;
+  font-family: PingFangSC;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  color: #49e7d9;
+}

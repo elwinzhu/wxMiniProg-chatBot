@@ -1,0 +1,45 @@
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  //border: 1px solid white;
+  max-width: 200px;
+  position: relative;
+}
+
+.logo-avatar {
+  border-radius: 80px;
+}
+
+.company {
+  background-color: white;
+}
+
+.checkable {
+  //background-color: white;
+  //box-sizing: border-box;
+  //border:  4px solid transparent;
+}
+
+.logo-text {
+  font-size: 28px;
+  color: #e7f5fc;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.selectedIcon {
+  height: 29px;
+  width: 29px;
+  border-radius: 15px;
+  background: #3fbb45;
+  position: absolute;
+  right: 8%;
+  top: 3px;
+}
+
+.checked {
+  //box-sizing: border-box;
+  border: 4px solid #3fbb45;
+}

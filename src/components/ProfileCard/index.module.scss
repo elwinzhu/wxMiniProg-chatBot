@@ -1,0 +1,73 @@
+.card-container {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  background-color: rgba(38, 198, 202, 0.2);
+  border: 1px solid rgba(38, 198, 202, 0.25);;
+  align-items: flex-start;
+  //width: 686px;
+  height: 101px;
+  padding: 21px 30px;
+}
+
+.card-logo-container {
+  //border: 1px solid red;
+  width: 102px;
+}
+
+.card-content-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  width: 380px;
+  //border: 1px solid pink;
+  //justify-content: center;
+  //flex: 1;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #e7f5fc;
+}
+
+.title {
+  font-size: 26px;
+  margin-top: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #e7f5fc;
+  opacity: 0.8;
+}
+
+.info {
+  font-size: 27px;
+  margin-top: 32px;
+}
+
+.tick-container {
+  //border: 1px solid black;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.center {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.selectedTxt {
+  //border: 1px solid red;
+  //margin-bottom: 10px;
+  height: 25px;
+  opacity: 0.8;
+  font-family: PingFangSC;
+  font-size: 26px;
+  color: #e7f5fc;
+}
+

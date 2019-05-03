@@ -1,0 +1,137 @@
+.root {
+  //border: 1px solid red;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  //padding: 0 40px;
+  height: 100vh;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+}
+
+.chat-container {
+  margin: 10px 0;
+  height: 72%;
+}
+
+.scroll-content {
+  //border: 1px solid cyan;
+  display: flex;
+  //color: white;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  //box-sizing: border-box;
+}
+
+.dlg {
+  //border: 1px solid magenta;
+  //height: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 57px;
+  &:first-child {
+    padding-top: 130px;
+  }
+}
+
+.dlg1 {
+  //border: 1px solid yellow;
+}
+
+.question {
+  //border: 1px solid greenyellow;
+  width: 66%;
+}
+
+.questionTxt {
+  border-radius: 20px;
+  border: solid 1px rgba(73, 231, 216, 0.2);
+  background-color: rgba(73, 231, 216, 0.18);
+  padding: 24px;
+  margin-bottom: 20px;
+  font-family: PingFangSC;
+  font-size: 30px;
+  color: #d7eefa;
+}
+
+.answer {
+  //text-align: right;
+  //border: 1px solid pink;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.answerTxt {
+  max-width: 60%;
+  display: flex;
+  border-radius: 20px;
+  border: solid 1px rgba(7, 254, 19, 0.2);
+  background-color: rgba(7, 254, 19, 0.18);
+  padding: 24px;
+  margin-bottom: 20px;
+  font-family: PingFangSC;
+  font-size: 30px;
+  //color: #49e7d8;
+  color: #d7eefa;
+}
+
+.bottomPlace {
+  height: 10%;
+  visibility: hidden;
+  border: 1px solid red;
+}
+
+.voice-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //border: 1px solid yellow;
+}
+
+.robot {
+  width: 253px;
+  height: 253px;
+  //background-color: rgba(200, 200, 200, 0.5);
+  text-align: center;
+  padding: 0;
+  //color: white;
+  //border: 1px solid yellow;
+}
+
+.img {
+  width: 253px;
+  height: 253px;
+}
+
+.txt {
+  border: solid 1px rgba(73, 231, 216, 0.2);
+  background-color: rgba(73, 231, 216, 0.18);
+  width: 505px;
+  padding: 0 40px;
+  color: #e7f5fc;
+  border-radius: 42.5px;
+  font-size: 30px;
+  font-family: PingFangSC;
+  height: 85px;
+  margin-top: 80px;
+}
+
+.ph {
+  color: #e7f5fc;
+  opacity: 0.6;
+  font-family: PingFangSC;
+}
+
+.action-hit {
+  opacity: 0.7;
+  font-family: PingFangSC;
+  font-size: 26px;
+  text-align: center;
+  color: #49e7d8;
+}

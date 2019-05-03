@@ -1,0 +1,44 @@
+.container {
+  //border: 1px solid cyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  //border: 1px solid pink;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 40px;
+  align-items: flex-start;
+}
+
+.addFav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  //border: 1px solid cyan;
+  box-sizing: border-box;
+  width: 180px;
+}
+
+.add-btn{
+  height: 110px;
+  width: 110px;
+  border-radius: 55px;
+  padding: 0;
+  background-color: rgba(200,200,200,0.5);
+  &:active{
+    background-color: rgba(220,220,220,0.5);
+  }
+}
+
+.addFav-avatar {
+  height: 110px;
+  width: 110px;
+}

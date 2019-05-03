@@ -1,0 +1,75 @@
+.root-container {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+  //border: 1px solid cyan;
+  //box-sizing: border-box;
+  height: 100vh;
+}
+
+.jobs-container {
+  width: 686px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  flex: 1;
+  margin: 30px 32px 20px 32px;
+}
+
+.btn-container {
+  //border: 1px solid yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  //flex:1;
+  min-height: 240px;
+}
+
+.btn {
+  width: 100%;
+  height: 85px;
+  border-radius: 42.5px;
+  border: solid 1px #0fd32d;
+  background-color: #0e6f42;
+  font-family: PingFangSC;
+  font-size: 30px;
+  font-weight: 500;
+  color: #e7f5fc;
+  opacity: 0.9;
+  &:active {
+    opacity: 1;
+  }
+}
+
+.card-container {
+  border-radius: 10px;
+  //border: solid 1px rgba(73, 231, 216, 0.2);
+  //background-color: rgba(73, 231, 216, 0.18);
+  //height: 155px;
+}
+
+.nodata-container {
+
+  justify-content: center;
+  //padding-top: 18.3vh;
+  display: flex;
+  //border: 1px solid cyan;
+  flex-direction: column;
+  color: #49e7d8;
+  font-family: PingFangSC;
+  font-size: 30px;
+}
+
+.robot {
+  margin: 18.3vh auto 0 auto;
+  height: 314px;
+  width: 314px;
+}
+
+.nodata-msg {
+  //margin-top: 1.1vh;
+  font-size: 30px;
+  color: #49e7d8;
+  margin: 1.1vh auto 0 auto;
+}
