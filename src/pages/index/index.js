@@ -126,6 +126,13 @@ class Index extends Component {
           // res.data.people = []
           // res.statusCode = 500
           // res.data=undefined
+  
+          if (!responseOK(res)) {
+            console.log(res.statusCode);
+            console.log(`request url: ${Requests.getPotentialProfiles}/${e.detail.value}, get`);
+            console.log(`error msg: ${res.data.title}`);
+          }
+          
           if (res.statusCode >= 500) {
             wx.hideLoading();
             wx.navigateTo({url: `../error/index`})
@@ -199,19 +206,28 @@ class Index extends Component {
   performWxLogin = () => {
     let me = this;
     wx.login({
-      success(res) {
-        console.log(res);
+      success(res1) {
+        console.log(res1);
         
-        if (res.code) {
-          console.log(res.code);
+        if (res1.code) {
+          console.log(res1.code);
           
           wx.request({
             url: Requests.getAppUser,
             method: 'POST',
             data: {
-              jsCode: res.code
+              jsCode: res1.code
             },
             success(res) {
+              console.log(res);
+              console.log(res.data);
+              
+              if (!responseOK(res)) {
+                console.log(res.statusCode);
+                console.log(`request url: ${Requests.getAppUser}, post`);
+                console.log(`error msg: ${res.data.title}`);
+              }
+              
               if (res.statusCode >= 500) {
                 wx.navigateTo({url: `../error/index`})
               } else if (responseOK(res)) {

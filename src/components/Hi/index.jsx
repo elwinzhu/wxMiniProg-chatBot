@@ -51,6 +51,10 @@ class Hi extends Component {
             me.setState({loading: false});
           }
           else {
+            console.log(res.statusCode);
+            console.log(`request url: ${Requests.getJobDetail}/${jobId}/userId/${userId}, get`);
+            console.log(`error msg: ${res.data.title}`);
+            
             wxShowError(false);
           }
         },
@@ -74,8 +78,13 @@ class Hi extends Component {
             wx.hideLoading();
             me.setState({loading: false});
           }
-          else
+          else{
+            console.log(res.statusCode);
+            console.log(`request url: ${Requests.viewResume}/userId/${userId}, get`);
+            console.log(`error msg: ${res.data.title}`);
+            
             wxShowError(false);
+          }
         },
         fail: networkError
       });
@@ -127,6 +136,10 @@ class Hi extends Component {
       method: 'DELETE',
       success: function (res) {
         if (!responseOK(res)) {
+          console.log(res.statusCode);
+          console.log(`request url: ${Requests.appUserLogOut}/${me.userId}, delete`);
+          console.log(`error msg: ${res.data.title}`);
+          
           wxShowError(false);
         }
         else {

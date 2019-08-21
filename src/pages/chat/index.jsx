@@ -46,11 +46,11 @@ class Index extends Component {
   }
   
   componentWillMount() {
-
+    
     let profile = wx.getStorageSync(Keys.UserLinkedinProfile);
     this.userName = profile.name;
     this.userId = this.$router.params.userId;
-
+    
     //clear the list to initialize a new session
     msgs = [];
     answers = [];
@@ -193,17 +193,26 @@ class Index extends Component {
     });
   };
   
+  retryTimes = 0;
+  lastreturned = false;
   searchJobs = (searchParams, keyword) => {
     let me = this;
+    me.lastreturned = false;
+    wx.showLoading({showMask: true});
+    
     wx.request({
       url: `${Requests.searchJobs}/userId/${me.userId}`,
       method: 'POST',
       data: {
-        search: JSON.stringify(searchParams)
+        search_restrictions: searchParams,
+        default_geo_distance: '40km'
+        //search: JSON.stringify(searchParams)
       },
       success: function (res) {
+        me.lastreturned = true;
         if (res.statusCode >= 500) {
-          wx.navigateTo({url: `../error/index`})
+          clearInterval(me.requestTimer);
+          wx.navigateTo({url: `../error/index`});
         }
         else if (res.statusCode >= 400) {
           wx.showModal({
@@ -217,9 +226,11 @@ class Index extends Component {
                 );
               }
             }
-          })
+          });
+          clearInterval(me.requestTimer);
         }
         else if (!responseOK(res)) {
+          clearInterval(me.requestTimer);
           wxShowError(false);
         }
         else {
@@ -231,19 +242,40 @@ class Index extends Component {
             // let arr = res.data.slice(0, 6);
             // console.log(arr);
             //return;
+            console.log(res);
             
-            wx.setStorageSync(Keys.JobSearchResult, res.data);
-            
-            // wx.redirectTo({url: `../job-search/no-data?userId=${me.userId}&value=${encodeURIComponent(keyword)}`});
-            // return;
-            
-            
-            if (res.data && res.data.length > 0) {
-              //jobs = me.processSimulatedData((res.data));
+            //check status
+            if (res.data.status === "FINISHED") {
+              //got data
+              clearInterval(me.requestTimer);
+              wx.setStorageSync(Keys.JobSearchResult, res.data.jobs);
+              
+              wx.hideLoading();
               wx.redirectTo({url: `../job-search/index?userId=${me.userId}&value=${encodeURIComponent(keyword)}`});
             }
+            // else if (res.data.status === "NO_JOB_IN_QUERY_LOCATION" ||
+            //   res.data.status === "NO_JOB_IN_QUERY_LOCATION"
+            // ){
+            //   clearInterval(me.requestTimer);
+            //   wx.setStorageSync(Keys.JobSearchResult, []);
+            //   wx.hideLoading();
+            // }
+            else if (res.data.status === "RELATIVE_TITLES_RECOMMENDED" ||
+              res.data.status === "HOT_TITLES_RECOMMENDED") {
+              clearInterval(me.requestTimer);
+              
+              wx.setStorageSync(Keys.HotTitles, res.data.recommended_titles);
+              wx.setStorageSync(Keys.SearchParams, searchParams);
+              wx.redirectTo({url: `../job-search/no-data?userId=${me.userId}&value=${encodeURIComponent(keyword)}&area=${res.data.search_area_size}&nodata=${encodeURIComponent(keyword)}`});
+            }
             else {
-              wx.redirectTo({url: `../job-search/no-data?userId=${me.userId}&value=${encodeURIComponent(keyword)}`});
+              if (!me.requestTimer) {
+                me.requestTimer = setInterval(() => {
+                  me.retryTimes++;
+                  if (me.lastreturned)
+                    me.searchJobs(searchParams, keyword);
+                }, 800);
+              }
             }
           } catch (ex) {
             console.log(ex.message);

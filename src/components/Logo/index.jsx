@@ -84,6 +84,10 @@ class Logo extends Component {
           me.setState({checked: !me.state.checked});
         }
         else {
+          console.log(res.statusCode);
+          console.log(`request url: ${Requests.favoriteCompany}, ${addOrRemove ? 'POST' : 'DELETE'}`);
+          console.log(`error msg: ${res.data.title}`);
+          
           wxShowError(false);
         }
       },

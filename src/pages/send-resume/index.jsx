@@ -125,6 +125,12 @@ class SendResume extends Component {
           email, phone
         },
         success: function (res) {
+          if (!responseOK(res)) {
+            console.log(res.statusCode);
+            console.log(`request url: ${Requests.sendResume}, post`);
+            console.log(`error msg: ${res.data.title}`);
+          }
+          
           if (res.statusCode >= 400) {
             wx.navigateTo({url: '../error/index'})
           } else if (!responseOK(res)) {

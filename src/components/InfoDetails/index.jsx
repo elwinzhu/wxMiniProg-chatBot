@@ -1,6 +1,7 @@
 import Taro, {Component} from '@tarojs/taro'
 import {View, Text, ScrollView} from '@tarojs/components';
 import JobCard from '../JobCard';
+import {stripHtml} from "../../assets/constants";
 
 import styles from './index.module.scss';
 
@@ -49,11 +50,11 @@ class InfoDetails extends Component {
               <View className={styles.scrollContent}>
                 <View className={styles.title}>
                   <View>Job Title</View>
-                  <View className={styles['txt-details']}>{info.title}</View>
+                  <Text className={styles['txt-details']}>{stripHtml(info.title)}</Text>
                 </View>
                 <View className={`${styles['job-desc']} ${styles['bottom-element']}`}>
                   <View>Job Description</View>
-                  <View className={styles['txt-details']}>{info.desc}</View>
+                  <Text className={styles['txt-details']}>{stripHtml(info.desc)}</Text>
                 </View>
                 
                 {/*<View className={styles['job-desc']}>*/}

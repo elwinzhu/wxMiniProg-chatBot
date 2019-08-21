@@ -94,6 +94,12 @@ class FavCompany extends Component {
     wx.request({
       url: `${Requests.favoriteCompany}/userId/${this.userId}`,
       success: function (res) {
+        if (!responseOK(res)) {
+          console.log(res.statusCode);
+          console.log(`request url: ${Requests.favoriteCompany}/userId/${me.userId}, get`);
+          console.log(`error msg: ${res.data.title}`);
+        }
+        
         if (res.statusCode >= 500){
           wx.navigateTo({url: `../error/index`})
         }else if (!responseOK(res)) {

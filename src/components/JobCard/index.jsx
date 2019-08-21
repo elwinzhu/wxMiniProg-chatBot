@@ -113,6 +113,10 @@ class JobCard extends Component {
           me.updateFavInLocal(jobId, curLike);
         }
         else {
+          console.log(res.statusCode);
+          console.log(`request url: ${Requests.favoriteJobs}, ${curLike ? 'DELETE' : 'POST'}`);
+          console.log(`error msg: ${res.data.title}`);
+          
           wxShowError(undefined, "重复的操作!");
         }
       },
@@ -131,10 +135,12 @@ class JobCard extends Component {
     
     //update search result
     let searchRes = wx.getStorageSync(Keys.JobSearchResult);
-    job = searchRes.find(r => r.id === jobId);
-    if (job) {
-      job.favorite = curLike ? false : true;
-      wx.setStorageSync(Keys.JobSearchResult, searchRes);
+    if (searchRes) {
+      job = searchRes.find(r => r.id === jobId);
+      if (job) {
+        job.favorite = curLike ? false : true;
+        wx.setStorageSync(Keys.JobSearchResult, searchRes);
+      }
     }
   }
 }

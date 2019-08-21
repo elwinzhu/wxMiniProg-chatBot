@@ -3,10 +3,13 @@ const Keys = {
   PotentialProfiles: 'potentialProfiles',
   Recommendations: 'jobRecommendations',
   AppUserInfo: 'appUserInfo',
-
+  
   IconCreate: 'IconCreate',
   IconPlaceHolder: 'IconPlaceHolder',
-  JobSearchResult: 'jobSearchResult'
+  JobSearchResult: 'jobSearchResult',
+  
+  HotTitles: 'hotTitles',
+  SearchParams: 'searchParams'
 };
 
 export default Keys;
@@ -14,10 +17,11 @@ export default Keys;
 //------------------------------------------------------------------
 
 let apiBaseUrl = 'http://api.hitalent.us:38081/apnpublic/api/v1';
-//apiBaseUrl = 'http://192.168.0.164:8081/apnpublic/api/v1';
+apiBaseUrl = 'https://api.intelliprogroup.cn:8443/apnpublic/api/v1';
 export const Requests = {
   getAppUser: `${apiBaseUrl}/wechat-users`,
-  getPotentialProfiles: `http://staging.api.hitalent.us:3010/api/search`,
+  //getPotentialProfiles: `http://staging.api.hitalent.us:3010/api/search`,
+  getPotentialProfiles: `https://api.intelliprogroup.cn:8443/api/search`,
   bindProfileToAppUser: `${apiBaseUrl}/wechat-users`,
   skillAnalysis: `${apiBaseUrl}/wechat-users`,
   favoriteCompany: `${apiBaseUrl}/user-favorite-companies`,
@@ -27,12 +31,12 @@ export const Requests = {
   favoriteJobs: `${apiBaseUrl}/user-favorite-jobs`,
   getJobDetail: `${apiBaseUrl}/jobs`,
   speechRecognition: `${apiBaseUrl}/speech-recognizers`,
-  speechNLP: `http://api.hitalent.us:8283/apnNLP/nlp/listen/session`,
-  //speechNLP: `http://192.168.2.91:8080/apnNLP_war/nlp/listen/session`,
+  //speechNLP: `http://api.hitalent.us:8283/apnNLP/nlp/listen/session`,
+  speechNLP: `https://api.intelliprogroup.cn:8443/apnNLP/nlp/listen/session`,
   searchJobs: `${apiBaseUrl}/jobs/search`,
   viewResume: `${apiBaseUrl}/talents`,
   sendResume: `${apiBaseUrl}/applications`,
-
+  
   appUserLogOut: `${apiBaseUrl}/wechat-users`
 };
 
@@ -72,15 +76,24 @@ export const arrayToRows = (array, rowSize) => {
           temp.push(row);
         row = [];
       }
-
+      
       row.push(o);
     });
-
+    
     //for last row
     if (row.length > 0)
       temp.push(row);
   }
   return temp;
+};
+
+export const stripHtml = (htmlText) => {
+  let html = htmlText.replace(/(<br\s?\/>)/ig, '\n');
+  
+  let noHTML = /(<([^>]+)>)/ig;
+  return html.replace(noHTML, '').replace(/(&nbsp;)/ig, ' ');
+  
+  //return html.replace(noHTML, '');
 };
 
 //------------------------------------------------------------------

@@ -123,7 +123,7 @@ class Profile extends Component {
       else item.selected = false;
     });
     
-    console.log(profiles);
+    //console.log(profiles);
     this.setState({selected: id});
   };
   

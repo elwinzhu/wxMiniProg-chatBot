@@ -23,6 +23,8 @@ let msgs = [
   ['在结果页长按小T，可以', '与我对话，精准搜索工作']
 ];
 
+const maxRetry = 10;
+
 class Welcome extends Component {
   state = {seqIndex: 0, msgIndex: 0};
   
@@ -47,6 +49,7 @@ class Welcome extends Component {
     this.reqDone = false;
   };
   
+  retryTimes = 0;
   getJobRecommendations = (userId) => {
     let me = this;
     
@@ -54,6 +57,11 @@ class Welcome extends Component {
       url: `${Requests.recommendJobs}/userId/${userId}?page=0&size=30`,
       success: function (res) {
         console.log(res.statusCode);
+        
+        if (!responseOK(res)) {
+          console.log(`request url: ${Requests.recommendJobs}/userId/${userId}?page=0&size=30, get`);
+          console.log(`error msg: ${res.data.title}`);
+        }
         
         if (res.statusCode >= 500) {
           wx.navigateTo({url: '../error/index'})
@@ -63,12 +71,6 @@ class Welcome extends Component {
           wx.redirectTo({url: '../index/index?witherror=1'});
         }
         else {
-          // wx.setStorageSync(Keys.Recommendations, jobs);
-          
-          // me.reqDone = true;
-          // pngSeq.push(...pngSeq2);
-          // return;
-          
           try {
             //in case the user logged off from another device
             if (!res.data) {
@@ -86,12 +88,36 @@ class Welcome extends Component {
               });
             }
             else {
-              //got jobs
-              jobs = me.processData((res.data));
-              wx.setStorageSync(Keys.Recommendations, jobs);
-              
-              me.reqDone = true;
-              pngSeq.push(...pngSeq2);
+              //console.log(res.data.status);
+              //check status
+              if (res.data.status === "FINISHED") {
+                clearInterval(me.requestTimer);
+                
+                //read data
+                jobs = me.processData((res.data.jobs));
+                wx.setStorageSync(Keys.Recommendations, jobs);
+                
+                me.reqDone = true;
+                pngSeq.push(...pngSeq2);
+              }
+              else {
+                if (!me.requestTimer && me.retryTimes < maxRetry) {
+                  me.requestTimer = setInterval(() => {
+                    me.retryTimes++;
+                    me.getJobRecommendations(userId)
+                  }, 600);
+                }
+                else {
+                  if (me.retryTimes >= maxRetry) {
+                    //at most 5 times
+                    me.retryTimes = 0;
+                    clearInterval(me.requestTimer);
+                    
+                    me.reqDone = true;
+                    pngSeq.push(...pngSeq2);
+                  }
+                }
+              }
             }
           } catch (ex) {
             console.log(ex.message);

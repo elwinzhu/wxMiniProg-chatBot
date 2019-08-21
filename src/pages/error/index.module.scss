@@ -3,7 +3,7 @@
   //border: 1px solid red;
   box-sizing: border-box;
   height: 100vh;
-  background-image: radial-gradient(circle at 50% 50%, #263193, #222c8d 49%, #150b63);
+  //background-image: radial-gradient(circle at 50% 50%, #263193, #222c8d 49%, #150b63);
 }
 
 .error-container {
@@ -78,4 +78,19 @@
   font-weight: 500;
   text-align: center;
   color: #49e7d9;
+}
+
+.btn-log-out {
+  width: 231px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  height: 85px;
+  line-height: 85px;
+  border-radius: 42.5px;
+  border: solid 1px #df3333;
+  background-color: rgba(242, 99, 99, 0.9);
+  &:active {
+    background-color: rgba(242, 99, 99, 0.8);
+  }
 }
